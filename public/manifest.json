@@ -1,0 +1,50 @@
+{
+  "id": "/",
+  "name": "Arabs Guide in Russia — دليل العرب في روسيا",
+  "short_name": "ArabsRussia",
+  "description": "Comprehensive offline-capable directory for Arab tourists and students in Russia: Halal dining, hotels, translators, taxis, and Metro guides.",
+  "lang": "ar",
+  "dir": "rtl",
+  "theme_color": "#065F46",
+  "background_color": "#F8FAFC",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "categories": ["travel", "navigation", "food", "education"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Halal Places",
+      "short_name": "Halal",
+      "description": "Browse verified Halal restaurants and hotels",
+      "url": "/?tab=places&halal=true"
+    },
+    {
+      "name": "Offline Metro",
+      "short_name": "Metro",
+      "description": "Access offline Moscow and St. Petersburg Metro guides",
+      "url": "/?tab=metro"
+    }
+  ]
+}

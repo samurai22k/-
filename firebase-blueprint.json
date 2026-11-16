@@ -1,0 +1,333 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator account granted write privileges on directory collections.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 160
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "grantedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email", "grantedBy", "createdAt"]
+    },
+    "Place": {
+      "title": "Place",
+      "description": "Directory listing for a restaurant, hotel, hostel, cafe, or grocery in Russia.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "nameAr": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "category": {
+          "type": "string",
+          "enum": ["restaurant", "hotel", "hostel", "cafe", "grocery", "other"]
+        },
+        "city": {
+          "type": "string",
+          "enum": ["Moscow", "Saint Petersburg", "Kazan", "Sochi"]
+        },
+        "address": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255
+        },
+        "nearestMetro": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "nearestMetroAr": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1500
+        },
+        "descriptionAr": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1500
+        },
+        "isHalal": {
+          "type": "boolean"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 40
+        },
+        "imageUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "nameAr",
+        "category",
+        "city",
+        "address",
+        "nearestMetro",
+        "nearestMetroAr",
+        "description",
+        "descriptionAr",
+        "isHalal",
+        "latitude",
+        "longitude",
+        "phone",
+        "isActive",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Offer": {
+      "title": "Offer",
+      "description": "Promotional discount attached to a Place listing.",
+      "type": "object",
+      "properties": {
+        "placeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "titleAr": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1000
+        },
+        "descriptionAr": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1000
+        },
+        "discountPercentage": {
+          "type": "integer"
+        },
+        "promoCode": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 32
+        },
+        "expiresAt": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 32
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "placeId",
+        "title",
+        "titleAr",
+        "description",
+        "descriptionAr",
+        "discountPercentage",
+        "promoCode",
+        "expiresAt",
+        "isActive",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "Directory listing for translators, taxis, legal, medical, or housing assistance.",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 140
+        },
+        "fullNameAr": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 140
+        },
+        "category": {
+          "type": "string",
+          "enum": ["translator", "taxi", "legal", "medical", "housing", "other"]
+        },
+        "city": {
+          "type": "string",
+          "enum": ["Moscow", "Saint Petersburg", "Kazan", "Sochi"]
+        },
+        "specialty": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 240
+        },
+        "specialtyAr": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 240
+        },
+        "languagesSpoken": {
+          "type": "array"
+        },
+        "languagesSpokenAr": {
+          "type": "array"
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 40
+        },
+        "whatsappUrl": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "telegramUrl": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "fullName",
+        "fullNameAr",
+        "category",
+        "city",
+        "specialty",
+        "specialtyAr",
+        "languagesSpoken",
+        "languagesSpokenAr",
+        "phone",
+        "isVerified",
+        "isActive",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/admins/{adminUid}": {
+      "schema": {
+        "$ref": "#/entities/AdminUser"
+      },
+      "description": "Role-based admin allowlist documents keyed by Firebase Auth UID."
+    },
+    "/places/{placeId}": {
+      "schema": {
+        "$ref": "#/entities/Place"
+      },
+      "description": "Public directory of restaurants, hotels, hostels, cafes, and groceries in Russia."
+    },
+    "/places/{placeId}/offers/{offerId}": {
+      "schema": {
+        "$ref": "#/entities/Offer"
+      },
+      "description": "Promotional offers belonging to a specific Place document."
+    },
+    "/services/{serviceId}": {
+      "schema": {
+        "$ref": "#/entities/Service"
+      },
+      "description": "Public directory of translators, taxis, and local support services."
+    }
+  }
+}

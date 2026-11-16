@@ -1,0 +1,6 @@
+{
+  "name": "Arabs Guide in Russia",
+  "description": "Mobile-first offline-capable directory for Arab tourists and students in Russia — Halal restaurants, hotels, active offers, translators, taxis, and Metro guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
